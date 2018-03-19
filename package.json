@@ -2,11 +2,13 @@
   "name": "headless-cms",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://smithmanny.github.io/React-Blog",
   "dependencies": {
     "apollo-cache-inmemory": "^1.1.9",
     "apollo-client": "^2.2.5",
     "apollo-link-http": "^1.5.2",
     "axios": "^0.18.0",
+    "gh-pages": "^1.1.0",
     "graphql": "^0.13.1",
     "graphql-tag": "^2.8.0",
     "react": "^16.2.0",
@@ -16,6 +18,8 @@
     "react-scripts": "1.1.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
