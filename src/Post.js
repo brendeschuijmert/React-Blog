@@ -14,7 +14,11 @@ const Post = ({ data: { loading, post } }) => {
       </article>
     );
   }
-  return <h2>Loading article...</h2>
+  return (
+    <div className="loading">
+      <div className="loading-anim"></div>
+    </div>
+  )
 };
 
 const singlePost = gql`

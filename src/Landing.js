@@ -6,21 +6,33 @@ import gql from 'graphql-tag';
 const Landing = ({ data: { loading, allPosts } }) => {
   if (!loading) {
     return (
-      <div className="posts-container">
+      <div className="wrapper posts-container">
         {allPosts.map(post => (
-          <article className="content" key={post.id}>
-            <div className="postImage">
+          <Link to={`/post/${post.slug}`}>
+            <article className="post-wrapper" key={post.id}>
               <img src={post.image.url} alt=""/>
-            </div>
-            <Link to={`/post/${post.slug}`}>
-              <h2>{post.title}</h2>
-            </Link>
-          </article>
+
+              <div className="post-content">
+                <div className="post-title">
+                  
+                    <h2>{post.title}</h2>
+                  
+                </div>
+                <div className="post-author">
+                  <h4>Author</h4>
+                </div>
+              </div>
+            </article>
+          </Link>
         ))}
       </div>
     );
   }
-  return <h2>Loading Posts...</h2>
+  return (
+    <div className="loading">
+      <div className="loading-anim"></div>
+    </div>
+  )
 };
 
 const allPosts = gql`
